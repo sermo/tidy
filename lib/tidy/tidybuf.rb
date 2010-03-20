@@ -2,7 +2,11 @@
 #
 class Tidybuf
 
-  extend DL::Importable
+  if RUBY_VERSION =~ /1.9/ then
+    extend DL::Importer
+  else
+    extend DL::Importable
+  end
   
   # Access TidyBuffer instance.
   #
@@ -13,9 +17,9 @@ class Tidybuf
   TidyBuffer = struct [
     "TidyAllocator* allocator",
     "byte* bp",
-    "uint size",
-    "uint allocated",
-    "uint next"
+    "unsigned int size",
+    "unsigned int allocated",
+    "unsigned int next"
   ]
 
   def initialize

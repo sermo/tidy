@@ -2,7 +2,11 @@
 #
 module Tidylib
 
-  extend DL::Importable
+  if RUBY_VERSION =~ /1.9/ then
+    extend DL::Importer
+  else
+    extend DL::Importable
+  end
 
   module_function
   

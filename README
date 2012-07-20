@@ -1,3 +1,7 @@
+This is based on a Ruby 1.9-enabled fork of tidy from:
+
+https://github.com/ShogunPanda/tidy
+
 Tidy README
 ============
 
@@ -14,7 +18,7 @@ Install
 -------
 
   - Download library from http://tidy.sf.net (pre-compiled versions available).
-  
+
   - Install files using one of the following:
 
     $ gem install tidy-x-x-x.gem

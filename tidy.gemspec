@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors = ['Kevin Howe', 'Jonathan W. Zaleski']
   spec.email = ['kh@newclear.ca', 'jonathan.zaleski@worldone.com']
   spec.description = 'Ruby interface to HTML Tidy Library Project'
-  spec.summary = s.summary + ', updated to avoid to avoid seg faults (see http://rubyforge.org/tracker/index.php?func=detail&aid=10007&group_id=435&atid=1744)'
+  spec.summary = spec.summary + ', updated to avoid to avoid seg faults (see http://rubyforge.org/tracker/index.php?func=detail&aid=10007&group_id=435&atid=1744)'
   spec.license = 'MIT'
   spec.files = `git ls-files`.split($/)
   spec.executables = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }

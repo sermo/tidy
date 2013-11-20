@@ -2,7 +2,11 @@
 #
 class Tidybuf
 
-  if RUBY_VERSION =~ /1.9/ then
+  # Determine which importer to use (sorted by order of precedence).
+  #
+  if defined?(Fiddle::Importer)
+    extend Fiddle::Importer
+  elsif defined?(DL::Importer)
     extend DL::Importer
   else
     extend DL::Importable

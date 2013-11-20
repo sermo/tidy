@@ -1,20 +1,21 @@
-require 'rubygems'
+# coding: utf-8
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'tidy'
 
-version = File.read('VERSION').strip
-raise "no version" if version.empty?
-
-spec = Gem::Specification.new do |s|
-  s.name = 'tidy'
-  s.version = version 
-  s.author = 'Kevin Howe'
-  s.email = 'kh@newclear.ca'
-  s.homepage = 'http://tidy.rubyforge.org/'
-  s.platform = Gem::Platform::RUBY
-  s.summary = 'Ruby interface to HTML Tidy Library Project'
-  s.description = s.summary + ', updated to avoid to avoid seg faults (see http://rubyforge.org/tracker/index.php?func=detail&aid=10007&group_id=435&atid=1744)'
-  s.files = Dir['**/*'].delete_if { |f| f =~ /(cvs|gem|svn)$/i }
-  s.require_path = 'lib'
-  s.rdoc_options << '--all' << '--inline-source' << '--main' << 'lib/tidy.rb'
-  s.has_rdoc = true
-  s.rubyforge_project = 'tidy'
+Gem::Specification.new do |spec|
+  spec.name = 'tidy'
+  spec.version = Tidy::VERSION
+  spec.authors = ['Jonathan W. Zaleski']
+  spec.email = ['jonathan.zaleski@worldone.com']
+  spec.description = 'Ruby interface to HTML Tidy Library Project'
+  spec.summary = s.summary + ', updated to avoid to avoid seg faults (see http://rubyforge.org/tracker/index.php?func=detail&aid=10007&group_id=435&atid=1744)'
+  spec.license = 'MIT'
+  spec.files = `git ls-files`.split($/)
+  spec.executables = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.test_files = spec.files.grep(%r{^(test|spec|features)/})
+  spec.require_paths = ['lib']
+  spec.add_development_dependency 'bundler', '~> 1.3'
+  spec.add_development_dependency 'rake'
+  spec.add_development_dependency 'rspec'
 end

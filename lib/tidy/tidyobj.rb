@@ -89,11 +89,13 @@ class Tidyobj
   # Raise an error if the tidy document is invalid.
   #
   def verify_doc
-	  if RUBY_VERSION =~ /1.9/ then
-		raise TypeError, 'Invalid Tidy document' unless @doc.class == DL::CPtr
-	  else
-		raise TypeError, 'Invalid Tidy document' unless @doc.class == DL::PtrData
-	  end
+    if defined?(Fiddle::Pointer)
+      raise TypeError, 'Invalid Tidy document' unless @doc.class == Fiddle::Pointer
+    elsif defined?(DL::CPtr)
+      raise TypeError, 'Invalid Tidy document' unless @doc.class == DL::CPtr
+    else
+      raise TypeError, 'Invalid Tidy document' unless @doc.class == DL::PtrData
+    end
   end
 
   # Raise severe error based on tidy status value.

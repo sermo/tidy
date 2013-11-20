@@ -20,13 +20,20 @@
 #
 module Tidy
 
-  require 'dl/import'
-  require 'dl/struct'
+  begin
+    require 'fiddle/import'
+    require 'fiddle/struct'
+  rescue LoadError
+    require 'dl/import'
+    require 'dl/struct'
+  end
+
   require 'tidy/tidybuf'
   require 'tidy/tidyerr'
   require 'tidy/tidylib'
   require 'tidy/tidyobj'
   require 'tidy/tidyopt'
+  require 'tidy/version'
 
   module_function
 

@@ -6,8 +6,8 @@ require 'tidy'
 Gem::Specification.new do |spec|
   spec.name = 'tidy'
   spec.version = Tidy::VERSION
-  spec.authors = ['Jonathan W. Zaleski']
-  spec.email = ['jonathan.zaleski@worldone.com']
+  spec.authors = ['Kevin Howe', 'Jonathan W. Zaleski']
+  spec.email = ['kh@newclear.ca', 'jonathan.zaleski@worldone.com']
   spec.description = 'Ruby interface to HTML Tidy Library Project'
   spec.summary = s.summary + ', updated to avoid to avoid seg faults (see http://rubyforge.org/tracker/index.php?func=detail&aid=10007&group_id=435&atid=1744)'
   spec.license = 'MIT'
